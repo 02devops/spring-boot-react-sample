@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Checkout code from the GitHub repository
-                git url: "$GIT_URL", branch: 'main'  // You can change the branch as needed
+                git url: "$GIT_URL", branch: 'master'  // You can change the branch as needed
             }
         }
 
