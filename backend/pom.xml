@@ -12,53 +12,46 @@
     <name>backend</name>
     <description>Spring Boot Backend</description>
 
-    <repositories>
-        <!-- Maven Central repository (standard) -->
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-
-        <!-- If you need additional repositories, add them here -->
-        <!-- Example: A custom repository -->
-        <!--
-        <repository>
-            <id>custom-repo</id>
-            <url>https://repo.customorg.com/maven2</url>
-        </repository>
-        -->
-    </repositories>
+    <!-- Spring Boot Parent -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.4</version> <!-- Adjust if needed -->
+    </parent>
 
     <dependencies>
-        <!-- Spring Boot dependencies -->
+        <!-- Spring Boot Web Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.5.4</version>
         </dependency>
 
+        <!-- Spring Boot Data JPA Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>2.5.4</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.3.23</version> <!-- Correct version of spring-context -->
-        </dependency>
-
-        <!-- Use a valid version of jjwt -->
+        <!-- JSON Web Token Dependency -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.11.4</version> <!-- Changed to 0.11.4, known to be available -->
+            <version>0.11.5</version>
         </dependency>
 
-        <!-- Additional dependencies can be added here -->
+        <!-- Spring Boot Test Starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Maven Compiler Plugin for Java 1.8 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -68,7 +61,13 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!-- Other build plugins can be added here -->
+
+            <!-- Spring Boot Maven Plugin to Package App as a JAR -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.5.4</version>
+            </plugin>
         </plugins>
     </build>
 </project>
